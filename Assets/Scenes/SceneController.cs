@@ -10,7 +10,7 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         //StartCoroutine(GetRequest("https://bit.ly/3iSheyg"));
-        StartCoroutine(GetRequest());
+       // StartCoroutine(GetRequest());
     }
 
     // Update is called once per frame
@@ -39,12 +39,12 @@ public class SceneController : MonoBehaviour
     IEnumerator GetRequest()
     {
         string uri = "https://bit.ly/3iSheyg";
-        using (UnityEngine.Networking.UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
             Debug.Log("In Coroutine Function");
             yield return webRequest.SendWebRequest();
-
+           // Debug.Log(webRequest.result);
             string[] pages = uri.Split('/');
             int page = pages.Length - 1;
 
