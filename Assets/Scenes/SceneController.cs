@@ -39,8 +39,11 @@ public class SceneController : MonoBehaviour
     IEnumerator GetRequest()
     {
         string uri = "https://bit.ly/3iSheyg";
+        UnityWebRequest unityWeb = UnityWebRequest.Get(uri);
+        Debug.Log("unityWeb: " + unityWeb.result);
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+           
             // Request and wait for the desired page.
             Debug.Log("In Coroutine Function");
             yield return webRequest.SendWebRequest();
